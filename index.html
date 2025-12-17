@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreelanceHub – Find Trusted Freelancers</title>
+    <meta
+      name="description"
+      content="Discover trusted freelancers for design, development, marketing, writing and more. Post your job, compare experts, and hire with confidence."
+    />
+
+    <!-- Google Fonts: Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Poppins", "system-ui", "sans-serif"],
+            },
+            colors: {
+              primary: {
+                50: "#EDF5FF",
+                100: "#DBEAFF",
+                200: "#B3D1FF",
+                300: "#80B2FF",
+                400: "#4D93FF",
+                500: "#1A75FF",
+                600: "#005BDB",
+                700: "#0044A8",
+                800: "#002E75",
+                900: "#001742",
+              },
+              slate: {
+                950: "#020617",
+              },
+            },
+            boxShadow: {
+              soft: "0 18px 45px rgba(15, 23, 42, 0.14)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-slate-950 text-slate-50 antialiased">
+    <!-- Page background decoration -->
+    <div
+      class="pointer-events-none fixed inset-0 -z-10 bg-slate-950 bg-[radial-gradient(circle_at_top,_#1A75FF33,_transparent_60%),radial-gradient(circle_at_bottom,_#0f172a,_#020617)]"
+    ></div>
+
+    <!-- Navigation -->
+    <header
+      class="sticky top-0 z-40 border-b border-white/5 bg-slate-950/80 backdrop-blur-xl"
+    >
+      <nav
+        class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 lg:px-6"
+      >
+        <div class="flex items-center gap-2">
+          <div
+            class="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary-500 to-sky-400 text-sm font-semibold text-white shadow-soft"
+          >
+            FH
+          </div>
+          <div>
+            <span
+              class="font-display text-lg font-semibold tracking-tight text-white"
+              >FreelanceHub</span
+            >
+            <p class="text-xs text-slate-400">
+              Trusted freelance services marketplace
+            </p>
+          </div>
+        </div>
+
+        <button
+          id="nav-toggle"
+          class="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-slate-200 shadow-sm backdrop-blur-md hover:border-primary-400/60 hover:bg-primary-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 lg:hidden"
+        >
+          <span>Menu</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            class="h-4 w-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+
+        <div
+          id="nav-links"
+          class="hidden items-center gap-8 text-sm font-medium text-slate-300 lg:flex"
+        >
+          <a href="#home" class="hover:text-white">Home</a>
+          <a href="#categories" class="hover:text-white">Categories</a>
+          <a href="#freelancers" class="hover:text-white">Freelancers</a>
+          <a href="#how-it-works" class="hover:text-white">How it works</a>
+          <a href="#blog" class="hover:text-white">Resources</a>
+        </div>
+
+        <div class="hidden items-center gap-3 lg:flex">
+          <a
+            href="login.html"
+            class="rounded-full border border-white/10 px-4 py-1.5 text-xs font-medium text-slate-200 hover:border-primary-400/60 hover:bg-primary-500/10"
+            >Log in</a
+          >
+          <a
+            href="register.html"
+            class="rounded-full bg-gradient-to-r from-primary-500 to-sky-400 px-4 py-1.5 text-xs font-semibold text-white shadow-soft hover:from-primary-400 hover:to-sky-300"
+            >Join as Freelancer</a
+          >
+        </div>
+      </nav>
+
+      <!-- Mobile nav -->
+      <div
+        id="nav-mobile"
+        class="hidden border-t border-white/5 bg-slate-900/95 px-4 pb-4 pt-2 text-sm text-slate-200 lg:hidden"
+      >
+        <div class="flex flex-col gap-2">
+          <a href="#home" class="py-1">Home</a>
+          <a href="#categories" class="py-1">Categories</a>
+          <a href="#freelancers" class="py-1">Freelancers</a>
+          <a href="#how-it-works" class="py-1">How it works</a>
+          <a href="#blog" class="py-1">Resources</a>
+        </div>
+        <div class="mt-3 flex gap-2">
+          <a
+            href="login.html"
+            class="flex-1 rounded-full border border-white/10 px-4 py-1.5 text-center text-xs font-medium"
+            >Log in</a
+          >
+          <a
+            href="register.html"
+            class="flex-1 rounded-full bg-gradient-to-r from-primary-500 to-sky-400 px-4 py-1.5 text-center text-xs font-semibold text-white"
+            >Join as Freelancer</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-4 pb-20 pt-10 lg:px-6 lg:pt-14">
+      <!-- Hero & Search -->
+      <section
+        id="home"
+        class="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-center"
+      >
+        <div>
+          <span
+            class="inline-flex items-center gap-2 rounded-full border border-primary-500/40 bg-primary-500/10 px-3 py-1 text-xs font-medium text-primary-200"
+          >
+            <span
+              class="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400"
+            ></span>
+            12,000+ verified freelancers ready to work
+          </span>
+
+          <h1
+            class="mt-5 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl"
+          >
+            Hire world‑class
+            <span class="text-primary-400">freelancers</span> in minutes, not
+            weeks.
+          </h1>
+
+          <p class="mt-4 max-w-xl text-sm text-slate-300 sm:text-base">
+            Post your project, get matched with vetted experts in design,
+            development, marketing, writing and more. Built for clients who care
+            about quality, trust and speed.
+          </p>
+
+          <!-- Search bar -->
+          <div
+            class="mt-6 rounded-2xl border border-white/10 bg-slate-900/80 p-3 shadow-soft backdrop-blur"
+          >
+            <form
+              id="global-search"
+              class="flex flex-col gap-3 md:flex-row md:items-center"
+            >
+              <div class="flex-1">
+                <label
+                  for="search-service"
+                  class="text-xs font-medium uppercase tracking-wide text-slate-400"
+                  >Service / Skill</label
+                >
+                <div
+                  class="mt-1 flex items-center gap-2 rounded-xl border border-white/5 bg-slate-950/70 px-3 py-2 focus-within:border-primary-400/60"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    class="h-4 w-4 text-slate-400"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"
+                    />
+                  </svg>
+                  <input
+                    id="search-service"
+                    type="text"
+                    placeholder="e.g. UI/UX Design, React Developer, SEO"
+                    class="w-full bg-transparent text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div class="md:w-48">
+                <label
+                  for="search-location"
+                  class="text-xs font-medium uppercase tracking-wide text-slate-400"
+                  >Location</label
+                >
+                <div
+                  class="mt-1 flex items-center gap-2 rounded-xl border border-white/5 bg-slate-950/70 px-3 py-2 focus-within:border-primary-400/60"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    class="h-4 w-4 text-slate-400"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M12 21s-6-4.35-6-10a6 6 0 1112 0c0 5.65-6 10-6 10z"
+                    />
+                  </svg>
+                  <input
+                    id="search-location"
+                    type="text"
+                    placeholder="Remote / City / Country"
+                    class="w-full bg-transparent text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-primary-500 to-sky-400 px-5 py-2 text-sm font-semibold text-white shadow-soft hover:from-primary-400 hover:to-sky-300"
+              >
+                Find a Freelancer
+              </button>
+            </form>
+
+            <p class="mt-2 text-xs text-slate-400">
+              Popular:
+              <button
+                class="tag-btn"
+                data-search="Web Design"
+              >
+                Web Design
+              </button>
+              <button
+                class="tag-btn"
+                data-search="Landing Page"
+              >
+                Landing Pages
+              </button>
+              <button
+                class="tag-btn"
+                data-search="Branding"
+              >
+                Branding
+              </button>
+              <button
+                class="tag-btn"
+                data-search="Full‑Stack Development"
+              >
+                Full‑Stack Development
+              </button>
+            </p>
+          </div>
+
+          <!-- Trust badges -->
+          <div class="mt-6 flex flex-wrap items-center gap-4 text-xs">
+            <div class="flex items-center gap-2 text-slate-300">
+              <span
+                class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400"
+              >
+                ✓
+              </span>
+              <span>Identity & portfolio verified experts</span>
+            </div>
+            <div class="flex items-center gap-2 text-slate-300">
+              <span
+                class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary-500/20 text-primary-300"
+              >
+                ★
+              </span>
+              <span>4.9 / 5 average project rating</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero visual -->
+        <div
+          class="relative mx-auto max-w-md rounded-3xl border border-white/5 bg-slate-900/80 p-5 shadow-soft backdrop-blur"
+        >
+          <div
+            class="absolute -left-6 -top-6 h-20 w-20 rounded-3xl bg-primary-500/20 blur-3xl"
+          ></div>
+          <div
+            class="absolute -bottom-8 -right-6 h-24 w-24 rounded-3xl bg-sky-400/20 blur-3xl"
+          ></div>
+
+          <div class="relative">
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <p class="text-xs font-medium text-slate-300">
+                  Match preview
+                </p>
+                <p class="text-[11px] text-slate-400">
+                  Get a shortlist of best‑fit freelancers instantly.
+                </p>
+              </div>
+              <span
+                class="rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300"
+              >
+                Under 90 seconds
+              </span>
+            </div>
+
+            <div class="mt-4 space-y-3">
+              <!-- Sample freelancer row -->
+              <article
+                class="flex items-center justify-between gap-3 rounded-2xl border border-white/5 bg-slate-950/80 p-3"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary-500 to-sky-400 text-xs font-semibold text-white"
+                  >
+                    AR
+                  </div>
+                  <div>
+                    <p class="text-sm font-medium text-slate-50">
+                      Amelia Rivers
+                    </p>
+                    <p class="text-xs text-slate-400">
+                      Senior Product Designer · Berlin
+                    </p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="text-xs font-semibold text-slate-50">
+                    from $85 / hr
+                  </p>
+                  <p class="text-[11px] text-emerald-300">Top‑rated · 4.9 ★</p>
+                </div>
+              </article>
+
+              <article
+                class="flex items-center justify-between gap-3 rounded-2xl border border-white/5 bg-slate-950/80 p-3"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-tr from-sky-400 to-teal-400 text-xs font-semibold text-white"
+                  >
+                    DK
+                  </div>
+                  <div>
+                    <p class="text-sm font-medium text-slate-50">
+                      David Kim
+                    </p>
+                    <p class="text-xs text-slate-400">
+                      Full‑Stack Engineer · Remote
+                    </p>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <p class="text-xs font-semibold text-slate-50">
+                    from $120 / hr
+                  </p>
+                  <p class="text-[11px] text-emerald-300">
+                    120+ projects delivered
+                  </p>
+                </div>
+              </article>
+
+              <!-- Mini stats -->
+              <div
+                class="grid grid-cols-3 gap-3 rounded-2xl border border-white/5 bg-slate-950/80 p-3 text-center text-[11px]"
+              >
+                <div>
+                  <p class="font-semibold text-slate-50">24/7</p>
+                  <p class="text-slate-400">Global talent</p>
+                </div>
+                <div>
+                  <p class="font-semibold text-slate-50">50k+</p>
+                  <p class="text-slate-400">Jobs completed</p>
+                </div>
+                <div>
+                  <p class="font-semibold text-slate-50">98%</p>
+                  <p class="text-slate-400">On‑time delivery</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular categories -->
+      <section id="categories" class="mt-16">
+        <div class="flex items-center justify-between gap-3">
+          <div>
+            <h2
+              class="font-display text-xl font-semibold tracking-tight text-white sm:text-2xl"
+            >
+              Popular service categories
+            </h2>
+            <p class="mt-1 text-sm text-slate-400">
+              From idea to launch – build your entire product with one trusted
+              network.
+            </p>
+          </div>
+          <button
+            class="hidden rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-slate-200 hover:border-primary-400/60 hover:bg-primary-500/10 sm:inline-flex"
+          >
+            View all categories
+          </button>
+        </div>
+
+        <div
+          class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4"
+          aria-label="Popular service categories"
+        >
+          <!-- Category card -->
+          <article
+            class="group flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-1 hover:border-primary-500/60 hover:bg-slate-900/90"
+          >
+            <div
+              class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/10 text-primary-300"
+            >
+              🎨
+            </div>
+            <h3
+              class="mt-4 font-display text-sm font-semibold text-slate-50 group-hover:text-white"
+            >
+              Design & Creative
+            </h3>
+            <p class="mt-1 text-xs text-slate-400">
+              UI/UX, product design, branding, illustrations, motion.
+            </p>
+            <p class="mt-3 text-xs font-medium text-slate-300">
+              Top skills:
+              <span class="text-slate-100"
+                >Figma, Webflow, Design Systems</span
+              >
+            </p>
+          </article>
+
+          <article
+            class="group flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-1 hover:border-primary-500/60 hover:bg-slate-900/90"
+          >
+            <div
+              class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/10 text-primary-300"
+            >
+              💻
+            </div>
+            <h3
+              class="mt-4 font-display text-sm font-semibold text-slate-50 group-hover:text-white"
+            >
+              Development & Tech
+            </h3>
+            <p class="mt-1 text-xs text-slate-400">
+              Web, mobile, APIs, SaaS, AI, automation & more.
+            </p>
+            <p class="mt-3 text-xs font-medium text-slate-300">
+              Top skills: <span class="text-slate-100">React, Node.js, AWS</span>
+            </p>
+          </article>
+
+          <article
+            class="group flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-1 hover:border-primary-500/60 hover:bg-slate-900/90"
+          >
+            <div
+              class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/10 text-primary-300"
+            >
+              ✍️
+            </div>
+            <h3
+              class="mt-4 font-display text-sm font-semibold text-slate-50 group-hover:text-white"
+            >
+              Writing & Translation
+            </h3>
+            <p class="mt-1 text-xs text-slate-400">
+              Copywriting, UX writing, technical docs, localization.
+            </p>
+            <p class="mt-3 text-xs font-medium text-slate-300">
+              Top skills:
+              <span class="text-slate-100">SEO, UX copy, Ghostwriting</span>
+            </p>
+          </article>
+
+          <article
+            class="group flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-1 hover:border-primary-500/60 hover:bg-slate-900/90"
+          >
+            <div
+              class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-500/10 text-primary-300"
+            >
+              📈
+            </div>
+            <h3
+              class="mt-4 font-display text-sm font-semibold text-slate-50 group-hover:text-white"
+            >
+              Marketing & Growth
+            </h3>
+            <p class="mt-1 text-xs text-slate-400">
+              Performance marketing, SEO, content, lifecycle.
+            </p>
+            <p class="mt-3 text-xs font-medium text-slate-300">
+              Top skills:
+              <span class="text-slate-100">Meta Ads, Google Ads, CRM</span>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Featured freelancers / listing preview -->
+      <section id="freelancers" class="mt-16">
+        <div class="flex items-center justify-between gap-3">
+          <div>
+            <h2
+              class="font-display text-xl font-semibold tracking-tight text-white sm:text-2xl"
+            >
+              Featured freelancers
+            </h2>
+            <p class="mt-1 text-sm text-slate-400">
+              Handpicked experts with proven track records and verified
+              experience.
+            </p>
+          </div>
+          <button
+            class="hidden rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-slate-200 hover:border-primary-400/60 hover:bg-primary-500/10 sm:inline-flex"
+          >
+            Browse all freelancers
+          </button>
+        </div>
+
+        <div
+          class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+          aria-label="Featured freelancers"
+        >
+          <!-- Freelancer card -->
+          <article
+            class="group flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-1 hover:border-primary-500/60 hover:bg-slate-900/90"
+          >
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div
+                  class="h-11 w-11 rounded-2xl bg-gradient-to-tr from-primary-500 to-sky-400"
+                ></div>
+                <div>
+                  <h3
+                    class="font-display text-sm font-semibold text-slate-50 group-hover:text-white"
+                  >
+                    Sofia Laurent
+                  </h3>
+                  <p class="text-xs text-slate-400">
+                    Senior UI/UX Designer · Paris
+                  </p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-xs font-semibold text-slate-50">
+                  from $1,200
+                </p>
+                <p class="text-[11px] text-slate-400">Landing page package</p>
+              </div>
+            </div>
+            <div class="mt-3 flex flex-wrap gap-1.5 text-[11px] text-slate-200">
+              <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                >SaaS</span
+              >
+              <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                >Design systems</span
+              >
+              <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                >Figma</span
+              >
+            </div>
+            <div class="mt-3 flex items-center justify-between text-[11px]">
+              <div class="flex items-center gap-1 text-amber-300">
+                <span>★ 4.9</span>
+                <span class="text-slate-400">(82 reviews)</span>
+              </div>
+              <p class="text-slate-400">Delivery: 7–10 days</p>
+            </div>
+          </article>
+
+          <article
+            class="group flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-1 hover:border-primary-500/60 hover:bg-slate-900/90"
+          >
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div
+                  class="h-11 w-11 rounded-2xl bg-gradient-to-tr from-sky-400 to-teal-400"
+                ></div>
+                <div>
+                  <h3
+                    class="font-display text-sm font-semibold text-slate-50 group-hover:text-white"
+                  >
+                    Marcus Lee
+                  </h3>
+                  <p class="text-xs text-slate-400">
+                    Full‑Stack Developer · Remote
+                  </p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-xs font-semibold text-slate-50">
+                  from $2,500
+                </p>
+                <p class="text-[11px] text-slate-400">MVP build package</p>
+              </div>
+            </div>
+            <div class="mt-3 flex flex-wrap gap-1.5 text-[11px] text-slate-200">
+              <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                >React</span
+              >
+              <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                >Node.js</span
+              >
+              <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                >AWS</span
+              >
+            </div>
+            <div class="mt-3 flex items-center justify-between text-[11px]">
+              <div class="flex items-center gap-1 text-amber-300">
+                <span>★ 5.0</span>
+                <span class="text-slate-400">(64 reviews)</span>
+              </div>
+              <p class="text-slate-400">Delivery: 3–6 weeks</p>
+            </div>
+          </article>
+
+          <article
+            class="group flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 shadow-soft transition hover:-translate-y-1 hover:border-primary-500/60 hover:bg-slate-900/90"
+          >
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div
+                  class="h-11 w-11 rounded-2xl bg-gradient-to-tr from-fuchsia-500 to-rose-500"
+                ></div>
+                <div>
+                  <h3
+                    class="font-display text-sm font-semibold text-slate-50 group-hover:text-white"
+                  >
+                    Priya Nair
+                  </h3>
+                  <p class="text-xs text-slate-400">
+                    Performance Marketer · Singapore
+                  </p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-xs font-semibold text-slate-50">
+                  from $900
+                </p>
+                <p class="text-[11px] text-slate-400">Launch strategy</p>
+              </div>
+            </div>
+            <div class="mt-3 flex flex-wrap gap-1.5 text-[11px] text-slate-200">
+              <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                >Meta Ads</span
+              >
+              <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                >Google Ads</span
+              >
+              <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                >Analytics</span
+              >
+            </div>
+            <div class="mt-3 flex items-center justify-between text-[11px]">
+              <div class="flex items-center gap-1 text-amber-300">
+                <span>★ 4.8</span>
+                <span class="text-slate-400">(46 reviews)</span>
+              </div>
+              <p class="text-slate-400">Delivery: 14 days</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section id="how-it-works" class="mt-16">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-start">
+          <div class="lg:w-1/3">
+            <h2
+              class="font-display text-xl font-semibold tracking-tight text-white sm:text-2xl"
+            >
+              How FreelanceHub works
+            </h2>
+            <p class="mt-2 text-sm text-slate-400">
+              A simple, transparent flow from posting your brief to paying your
+              favorite expert.
+            </p>
+          </div>
+
+          <div class="grid flex-1 gap-4 md:grid-cols-3">
+            <article
+              class="relative flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4"
+            >
+              <span
+                class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary-500/20 text-xs font-semibold text-primary-300"
+                >01</span
+              >
+              <h3
+                class="mt-3 font-display text-sm font-semibold text-slate-50"
+              >
+                Post your project
+              </h3>
+              <p class="mt-1 text-xs text-slate-400">
+                Share your goals, timeline, and budget. We surface best‑fit
+                freelancers instantly.
+              </p>
+            </article>
+
+            <article
+              class="relative flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4"
+            >
+              <span
+                class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary-500/20 text-xs font-semibold text-primary-300"
+                >02</span
+              >
+              <h3
+                class="mt-3 font-display text-sm font-semibold text-slate-50"
+              >
+                Hire with confidence
+              </h3>
+              <p class="mt-1 text-xs text-slate-400">
+                Compare profiles, portfolios, ratings and proposals in one
+                streamlined view.
+              </p>
+            </article>
+
+            <article
+              class="relative flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4"
+            >
+              <span
+                class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary-500/20 text-xs font-semibold text-primary-300"
+                >03</span
+              >
+              <h3
+                class="mt-3 font-display text-sm font-semibold text-slate-50"
+              >
+                Pay securely
+              </h3>
+              <p class="mt-1 text-xs text-slate-400">
+                Funds are held in escrow and released only when milestones are
+                approved.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials / Trust -->
+      <section class="mt-16">
+        <div
+          class="grid gap-8 rounded-3xl border border-emerald-500/20 bg-gradient-to-r from-emerald-500/10 via-slate-950 to-primary-500/10 p-6 shadow-soft lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:p-8"
+        >
+          <div>
+            <h2
+              class="font-display text-xl font-semibold tracking-tight text-white sm:text-2xl"
+            >
+              Trusted by product‑first teams and founders
+            </h2>
+            <p class="mt-2 text-sm text-slate-200">
+              “We launched our new SaaS marketing site in just four weeks using
+              a dream squad of FreelanceHub designers and developers.”
+            </p>
+            <div class="mt-4 flex items-center gap-3 text-sm">
+              <div
+                class="h-9 w-9 rounded-full bg-gradient-to-tr from-emerald-400 to-sky-400"
+              ></div>
+              <div>
+                <p class="font-medium text-slate-50">Lena Ortiz</p>
+                <p class="text-xs text-slate-300">
+                  Co‑founder, Northwind Analytics
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="grid gap-4 text-xs text-slate-100 sm:grid-cols-2 sm:text-sm"
+          >
+            <div
+              class="rounded-2xl border border-white/10 bg-slate-950/60 p-4"
+            >
+              <p class="text-2xl font-semibold">4.9 / 5</p>
+              <p class="mt-1 text-slate-300">Average freelancer rating</p>
+            </div>
+            <div
+              class="rounded-2xl border border-white/10 bg-slate-950/60 p-4"
+            >
+              <p class="text-2xl font-semibold">98%</p>
+              <p class="mt-1 text-slate-300">Projects delivered on time</p>
+            </div>
+            <div
+              class="rounded-2xl border border-white/10 bg-slate-950/60 p-4"
+            >
+              <p class="text-2xl font-semibold">120+</p>
+              <p class="mt-1 text-slate-300">Countries hiring on platform</p>
+            </div>
+            <div
+              class="rounded-2xl border border-white/10 bg-slate-950/60 p-4"
+            >
+              <p class="text-2xl font-semibold">$80M+</p>
+              <p class="mt-1 text-slate-300">Paid out to freelancers</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboards preview: client & freelancer -->
+      <section id="dashboards" class="mt-16">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-start">
+          <div class="lg:w-1/3">
+            <h2
+              class="font-display text-xl font-semibold tracking-tight text-white sm:text-2xl"
+            >
+              Powerful dashboards for clients & freelancers
+            </h2>
+            <p class="mt-2 text-sm text-slate-400">
+              Keep every project, conversation, and payment organized in one
+              place.
+            </p>
+            <div class="mt-4 inline-flex rounded-full bg-slate-900/70 p-1">
+              <button
+                data-dashboard-tab="client"
+                class="dashboard-tab active rounded-full px-3 py-1 text-xs font-medium text-slate-50"
+              >
+                Client view
+              </button>
+              <button
+                data-dashboard-tab="freelancer"
+                class="dashboard-tab rounded-full px-3 py-1 text-xs font-medium text-slate-300"
+              >
+                Freelancer view
+              </button>
+            </div>
+          </div>
+
+          <div class="flex-1">
+            <!-- Client dashboard -->
+            <div
+              id="dashboard-client"
+              class="rounded-3xl border border-white/5 bg-slate-950/80 p-4 shadow-soft"
+            >
+              <div
+                class="mb-3 flex items-center justify-between text-xs text-slate-300"
+              >
+                <p>Client dashboard</p>
+                <p>Acme FinTech</p>
+              </div>
+              <div
+                class="grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]"
+              >
+                <div class="space-y-3 text-xs">
+                  <div
+                    class="flex items-center justify-between rounded-2xl border border-white/5 bg-slate-900/80 px-3 py-2"
+                  >
+                    <div>
+                      <p class="text-slate-200">Active orders</p>
+                      <p class="text-[11px] text-slate-400">
+                        Track live projects in one view
+                      </p>
+                    </div>
+                    <p class="text-lg font-semibold text-slate-50">4</p>
+                  </div>
+                  <div
+                    class="flex items-center justify-between rounded-2xl border border-white/5 bg-slate-900/80 px-3 py-2"
+                  >
+                    <div>
+                      <p class="text-slate-200">Messages</p>
+                      <p class="text-[11px] text-slate-400">
+                        Stay synced with your team
+                      </p>
+                    </div>
+                    <p class="text-lg font-semibold text-slate-50">8</p>
+                  </div>
+                  <div
+                    class="flex items-center justify-between rounded-2xl border border-white/5 bg-slate-900/80 px-3 py-2"
+                  >
+                    <div>
+                      <p class="text-slate-200">Total spend</p>
+                      <p class="text-[11px] text-slate-400">
+                        This quarter on FreelanceHub
+                      </p>
+                    </div>
+                    <p class="text-lg font-semibold text-slate-50">$32,400</p>
+                  </div>
+                </div>
+                <div
+                  class="space-y-2 rounded-2xl border border-white/5 bg-slate-900/80 p-3 text-xs"
+                >
+                  <p class="mb-1 text-[11px] font-medium text-slate-400">
+                    Recent briefs
+                  </p>
+                  <div
+                    class="flex items-center justify-between rounded-xl bg-slate-950/80 px-2.5 py-2"
+                  >
+                    <div>
+                      <p class="text-slate-100">
+                        Revamp marketing website
+                      </p>
+                      <p class="text-[11px] text-slate-400">
+                        3 proposals · Delivery: 3 weeks
+                      </p>
+                    </div>
+                    <span
+                      class="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-medium text-emerald-300"
+                    >
+                      In review
+                    </span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between rounded-xl bg-slate-950/80 px-2.5 py-2"
+                  >
+                    <div>
+                      <p class="text-slate-100">
+                        Brand refresh & guidelines
+                      </p>
+                      <p class="text-[11px] text-slate-400">
+                        5 proposals · Delivery: 4 weeks
+                      </p>
+                    </div>
+                    <span
+                      class="rounded-full bg-sky-500/10 px-2 py-0.5 text-[10px] font-medium text-sky-300"
+                    >
+                      New
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Freelancer dashboard -->
+            <div
+              id="dashboard-freelancer"
+              class="mt-4 hidden rounded-3xl border border-white/5 bg-slate-950/80 p-4 shadow-soft"
+            >
+              <div
+                class="mb-3 flex items-center justify-between text-xs text-slate-300"
+              >
+                <p>Freelancer dashboard</p>
+                <p>Available · 32 hrs / week</p>
+              </div>
+              <div
+                class="grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]"
+              >
+                <div class="space-y-3 text-xs">
+                  <div
+                    class="flex items-center justify-between rounded-2xl border border-white/5 bg-slate-900/80 px-3 py-2"
+                  >
+                    <div>
+                      <p class="text-slate-200">Active orders</p>
+                      <p class="text-[11px] text-slate-400">
+                        Projects currently in progress
+                      </p>
+                    </div>
+                    <p class="text-lg font-semibold text-slate-50">3</p>
+                  </div>
+                  <div
+                    class="flex items-center justify-between rounded-2xl border border-white/5 bg-slate-900/80 px-3 py-2"
+                  >
+                    <div>
+                      <p class="text-slate-200">Pending payouts</p>
+                      <p class="text-[11px] text-slate-400">
+                        Cleared within 5 business days
+                      </p>
+                    </div>
+                    <p class="text-lg font-semibold text-slate-50">$4,850</p>
+                  </div>
+                  <div
+                    class="flex items-center justify-between rounded-2xl border border-white/5 bg-slate-900/80 px-3 py-2"
+                  >
+                    <div>
+                      <p class="text-slate-200">Profile score</p>
+                      <p class="text-[11px] text-slate-400">
+                        Complete profile for more matches
+                      </p>
+                    </div>
+                    <p class="text-lg font-semibold text-emerald-300">94%</p>
+                  </div>
+                </div>
+                <div
+                  class="space-y-2 rounded-2xl border border-white/5 bg-slate-900/80 p-3 text-xs"
+                >
+                  <p class="mb-1 text-[11px] font-medium text-slate-400">
+                    Incoming requests
+                  </p>
+                  <div
+                    class="flex items-center justify-between rounded-xl bg-slate-950/80 px-2.5 py-2"
+                  >
+                    <div>
+                      <p class="text-slate-100">
+                        SaaS onboarding redesign
+                      </p>
+                      <p class="text-[11px] text-slate-400">
+                        Budget: $3,200 · Due: 21 days
+                      </p>
+                    </div>
+                    <button
+                      class="rounded-full bg-primary-500/10 px-2 py-0.5 text-[10px] font-medium text-primary-300"
+                    >
+                      View brief
+                    </button>
+                  </div>
+                  <div
+                    class="flex items-center justify-between rounded-xl bg-slate-950/80 px-2.5 py-2"
+                  >
+                    <div>
+                      <p class="text-slate-100">
+                        Landing page optimization
+                      </p>
+                      <p class="text-[11px] text-slate-400">
+                        Budget: $1,400 · Due: 10 days
+                      </p>
+                    </div>
+                    <button
+                      class="rounded-full bg-slate-800 px-2 py-0.5 text-[10px] font-medium text-slate-200"
+                    >
+                      Reply
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Service categories page section -->
+      <section id="service-categories" class="mt-16">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-start">
+          <div class="lg:w-1/3">
+            <h2
+              class="font-display text-xl font-semibold tracking-tight text-white sm:text-2xl"
+            >
+              Explore all service categories
+            </h2>
+            <p class="mt-2 text-sm text-slate-400">
+              Go deeper into each category with curated sub‑skills and top‑rated
+              freelancers.
+            </p>
+          </div>
+          <div class="flex-1 space-y-4 text-sm text-slate-200">
+            <details class="group rounded-2xl border border-white/5 bg-slate-950/80 p-4">
+              <summary
+                class="flex cursor-pointer items-center justify-between text-sm font-medium text-slate-50"
+              >
+                <span>Web Design & Product Design</span>
+                <span class="text-xs text-slate-400 group-open:hidden"
+                  >Show sub‑categories</span
+                >
+                <span class="text-xs text-slate-400 hidden group-open:inline"
+                  >Hide</span
+                >
+              </summary>
+              <div class="mt-3 grid gap-2 text-xs text-slate-300 sm:grid-cols-2">
+                <div>
+                  <p class="font-medium text-slate-100">UI/UX Design</p>
+                  <p class="text-slate-400">
+                    Web apps, dashboards, mobile, design systems.
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium text-slate-100">Landing Pages</p>
+                  <p class="text-slate-400">
+                    High‑converting pages for SaaS, courses, and launches.
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium text-slate-100">Brand & Visual Identity</p>
+                  <p class="text-slate-400">
+                    Logos, guidelines, social templates, pitch decks.
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium text-slate-100">Product UI Audits</p>
+                  <p class="text-slate-400">
+                    Heuristic reviews and UX recommendations.
+                  </p>
+                </div>
+              </div>
+              <button
+                class="mt-4 inline-flex items-center rounded-full border border-white/10 px-3 py-1.5 text-[11px] font-medium text-slate-100 hover:border-primary-400/60 hover:bg-primary-500/10"
+              >
+                View top designers
+              </button>
+            </details>
+
+            <details class="group rounded-2xl border border-white/5 bg-slate-950/80 p-4">
+              <summary
+                class="flex cursor-pointer items-center justify-between text-sm font-medium text-slate-50"
+              >
+                <span>Development & Engineering</span>
+                <span class="text-xs text-slate-400 group-open:hidden"
+                  >Show sub‑categories</span
+                >
+                <span class="text-xs text-slate-400 hidden group-open:inline"
+                  >Hide</span
+                >
+              </summary>
+              <div class="mt-3 grid gap-2 text-xs text-slate-300 sm:grid-cols-2">
+                <div>
+                  <p class="font-medium text-slate-100">Front‑End Development</p>
+                  <p class="text-slate-400">
+                    React, Next.js, Tailwind, animations, accessibility.
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium text-slate-100">Back‑End & APIs</p>
+                  <p class="text-slate-400">
+                    Node.js, Laravel, databases, integrations, auth.
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium text-slate-100">Full‑Stack Product</p>
+                  <p class="text-slate-400">
+                    MVP builds, SaaS platforms, dashboards, internal tools.
+                  </p>
+                </div>
+                <div>
+                  <p class="font-medium text-slate-100">Automation & AI</p>
+                  <p class="text-slate-400">
+                    Workflows, bots, AI assistants, data pipelines.
+                  </p>
+                </div>
+              </div>
+              <button
+                class="mt-4 inline-flex items-center rounded-full border border-white/10 px-3 py-1.5 text-[11px] font-medium text-slate-100 hover:border-primary-400/60 hover:bg-primary-500/10"
+              >
+                View developers
+              </button>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Freelancer listing section (filters + cards) -->
+      <section id="freelancer-list" class="mt-16">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-start">
+          <!-- Filters -->
+          <aside
+            class="w-full rounded-2xl border border-white/5 bg-slate-950/80 p-4 text-xs text-slate-200 lg:w-64"
+          >
+            <h2 class="font-display text-sm font-semibold text-slate-50">
+              Filters
+            </h2>
+            <div class="mt-3 space-y-3">
+              <div>
+                <p class="text-[11px] font-medium text-slate-400">Skill</p>
+                <select
+                  class="mt-1 w-full rounded-lg border border-white/10 bg-slate-900/80 px-2 py-1.5 text-xs text-slate-100 focus:border-primary-400/60 focus:outline-none"
+                >
+                  <option>Any</option>
+                  <option>UI/UX Design</option>
+                  <option>Front‑End Development</option>
+                  <option>Copywriting</option>
+                  <option>Performance Marketing</option>
+                </select>
+              </div>
+              <div>
+                <p class="text-[11px] font-medium text-slate-400">Budget</p>
+                <select
+                  class="mt-1 w-full rounded-lg border border-white/10 bg-slate-900/80 px-2 py-1.5 text-xs text-slate-100 focus:border-primary-400/60 focus:outline-none"
+                >
+                  <option>Any</option>
+                  <option>Under $500</option>
+                  <option>$500 – $2,000</option>
+                  <option>$2,000 – $10,000</option>
+                  <option>$10,000+</option>
+                </select>
+              </div>
+              <div>
+                <p class="text-[11px] font-medium text-slate-400">Rating</p>
+                <select
+                  class="mt-1 w-full rounded-lg border border-white/10 bg-slate-900/80 px-2 py-1.5 text-xs text-slate-100 focus:border-primary-400/60 focus:outline-none"
+                >
+                  <option>Any</option>
+                  <option>4.0 ★ and up</option>
+                  <option>4.5 ★ and up</option>
+                  <option>4.8 ★ and up</option>
+                </select>
+              </div>
+              <div>
+                <p class="text-[11px] font-medium text-slate-400">Location</p>
+                <input
+                  type="text"
+                  placeholder="Remote / City / Country"
+                  class="mt-1 w-full rounded-lg border border-white/10 bg-slate-900/80 px-2 py-1.5 text-xs text-slate-100 placeholder:text-slate-500 focus:border-primary-400/60 focus:outline-none"
+                />
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] text-slate-400">Availability</span>
+                <label class="inline-flex cursor-pointer items-center gap-1">
+                  <input type="checkbox" class="h-3 w-3 rounded border-white/20" />
+                  <span class="text-[11px] text-slate-200">Available now</span>
+                </label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Listing cards -->
+          <div class="flex-1">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2
+                  class="font-display text-xl font-semibold tracking-tight text-white sm:text-2xl"
+                >
+                  Freelancers for “Product Landing Page”
+                </h2>
+                <p class="mt-1 text-xs text-slate-400">
+                  Showing a curated sample of profiles. In a real app, this list
+                  would be dynamic.
+                </p>
+              </div>
+              <select
+                class="rounded-full border border-white/10 bg-slate-950/80 px-3 py-1.5 text-xs text-slate-100 focus:border-primary-400/60 focus:outline-none"
+              >
+                <option>Best match</option>
+                <option>Highest rated</option>
+                <option>Most projects</option>
+                <option>Lowest price</option>
+              </select>
+            </div>
+
+            <div class="mt-5 grid gap-4 md:grid-cols-2">
+              <!-- Card mirrors your freelancer listing spec -->
+              <article
+                class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 shadow-soft"
+              >
+                <div class="flex items-start justify-between gap-3">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="h-11 w-11 rounded-2xl bg-gradient-to-tr from-primary-500 to-sky-400"
+                    ></div>
+                    <div>
+                      <h3 class="font-display text-sm font-semibold text-slate-50">
+                        Jenna Park
+                      </h3>
+                      <p class="text-xs text-slate-400">
+                        Product Designer · Toronto
+                      </p>
+                    </div>
+                  </div>
+                  <div class="text-right text-xs">
+                    <p class="font-semibold text-slate-50">from $900</p>
+                    <p class="text-slate-400">Landing page package</p>
+                  </div>
+                </div>
+                <p class="mt-2 text-xs text-slate-300">
+                  Specialised in B2B SaaS and fintech, with a focus on narrative‑
+                  driven, conversion‑ready landing pages.
+                </p>
+                <div class="mt-3 flex flex-wrap gap-1.5 text-[11px] text-slate-200">
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5">Figma</span>
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                    >Conversion copy</span
+                  >
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                    >Design systems</span
+                  >
+                </div>
+                <div class="mt-3 flex items-center justify-between text-[11px]">
+                  <span class="text-amber-300">★ 4.9 · 54 reviews</span>
+                  <button
+                    class="rounded-full border border-white/10 px-3 py-1 text-[11px] font-medium text-slate-100 hover:border-primary-400/60 hover:bg-primary-500/10"
+                  >
+                    View profile
+                  </button>
+                </div>
+              </article>
+
+              <article
+                class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 shadow-soft"
+              >
+                <div class="flex items-start justify-between gap-3">
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="h-11 w-11 rounded-2xl bg-gradient-to-tr from-sky-400 to-teal-400"
+                    ></div>
+                    <div>
+                      <h3 class="font-display text-sm font-semibold text-slate-50">
+                        Omar Rahman
+                      </h3>
+                      <p class="text-xs text-slate-400">
+                        Front‑End Developer · London
+                      </p>
+                    </div>
+                  </div>
+                  <div class="text-right text-xs">
+                    <p class="font-semibold text-slate-50">from $1,300</p>
+                    <p class="text-slate-400">React + Tailwind build</p>
+                  </div>
+                </div>
+                <p class="mt-2 text-xs text-slate-300">
+                  Pixel‑perfect implementation of Figma designs with smooth
+                  animations and Core Web Vitals in mind.
+                </p>
+                <div class="mt-3 flex flex-wrap gap-1.5 text-[11px] text-slate-200">
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5">React</span>
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                    >Next.js</span
+                  >
+                  <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                    >Tailwind CSS</span
+                  >
+                </div>
+                <div class="mt-3 flex items-center justify-between text-[11px]">
+                  <span class="text-amber-300">★ 5.0 · 38 reviews</span>
+                  <button
+                    class="rounded-full border border-white/10 px-3 py-1 text-[11px] font-medium text-slate-100 hover:border-primary-400/60 hover:bg-primary-500/10"
+                  >
+                    View profile
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Freelancer profile page section -->
+      <section id="freelancer-profile" class="mt-16">
+        <div class="rounded-3xl border border-white/5 bg-slate-950/80 p-6 shadow-soft">
+          <div class="flex flex-col gap-6 lg:flex-row lg:items-start">
+            <aside class="w-full space-y-3 lg:w-64">
+              <div class="flex items-center gap-3">
+                <div
+                  class="h-14 w-14 rounded-3xl bg-gradient-to-tr from-primary-500 via-sky-400 to-emerald-400"
+                ></div>
+                <div>
+                  <h2
+                    class="font-display text-lg font-semibold tracking-tight text-slate-50"
+                  >
+                    Eliza Stone
+                  </h2>
+                  <p class="text-xs text-slate-400">
+                    Senior Product Designer · Remote (EU friendly)
+                  </p>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5 text-[11px] text-slate-200">
+                <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                  >SaaS</span
+                >
+                <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                  >Fintech</span
+                >
+                <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                  >Design systems</span
+                >
+                <span class="rounded-full bg-slate-900/80 px-2 py-0.5"
+                  >UX research</span
+                >
+              </div>
+              <div class="flex items-center justify-between text-xs text-slate-300">
+                <span>★ 4.9 · 120 reviews</span>
+                <span>From $95 / hr</span>
+              </div>
+              <button
+                class="mt-2 w-full rounded-xl bg-gradient-to-r from-primary-500 to-sky-400 px-4 py-2 text-xs font-semibold text-white shadow-soft"
+              >
+                Contact / Hire
+              </button>
+            </aside>
+
+            <div class="flex-1 space-y-5 text-sm text-slate-200">
+              <section>
+                <h3 class="font-display text-sm font-semibold text-slate-50">
+                  About
+                </h3>
+                <p class="mt-1 text-xs text-slate-300">
+                  I help SaaS teams ship clearer, faster interfaces – from first
+                  wireframes to production‑ready design systems. Over the past 8
+                  years I’ve partnered with early‑stage startups and public
+                  companies across fintech, analytics, and productivity.
+                </p>
+              </section>
+              <section>
+                <h3 class="font-display text-sm font-semibold text-slate-50">
+                  Portfolio highlights
+                </h3>
+                <div class="mt-2 grid gap-3 md:grid-cols-3">
+                  <div
+                    class="rounded-2xl border border-white/5 bg-slate-900/80 p-3 text-xs text-slate-300"
+                  >
+                    <p class="font-medium text-slate-50">
+                      Northwind Analytics dashboard
+                    </p>
+                    <p class="mt-1 text-slate-400">
+                      End‑to‑end redesign of B2B data platform, increasing trial
+                      → paid conversion by 18%.
+                    </p>
+                  </div>
+                  <div
+                    class="rounded-2xl border border-white/5 bg-slate-900/80 p-3 text-xs text-slate-300"
+                  >
+                    <p class="font-medium text-slate-50">
+                      Finpilot mobile banking
+                    </p>
+                    <p class="mt-1 text-slate-400">
+                      New onboarding and IA for a retail banking app in 12
+                      markets.
+                    </p>
+                  </div>
+                  <div
+                    class="rounded-2xl border border-white/5 bg-slate-900/80 p-3 text-xs text-slate-300"
+                  >
+                    <p class="font-medium text-slate-50">FlowOS design system</p>
+                    <p class="mt-1 text-slate-400">
+                      Multi‑brand Figma system and tokens for a suite of SaaS
+                      tools.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Service packages & pricing -->
+              <section id="services-gigs">
+                <h3 class="font-display text-sm font-semibold text-slate-50">
+                  Service packages
+                </h3>
+                <div
+                  class="mt-2 grid gap-3 md:grid-cols-3 text-xs text-slate-200"
+                >
+                  <article
+                    class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/80 p-3"
+                  >
+                    <p class="text-[11px] font-medium text-slate-400">Basic</p>
+                    <p class="mt-1 text-sm font-semibold text-slate-50">
+                      UX review & action list
+                    </p>
+                    <p class="mt-2 text-slate-300">
+                      60‑min call, annotated loom, prioritized improvements.
+                    </p>
+                    <p class="mt-2 font-semibold text-slate-50">$450</p>
+                    <p class="text-[11px] text-slate-400">Delivery: 3 days</p>
+                    <button
+                      class="mt-3 rounded-full bg-slate-950 px-3 py-1 text-[11px] font-medium text-slate-100"
+                    >
+                      Order Basic
+                    </button>
+                  </article>
+
+                  <article
+                    class="flex flex-col rounded-2xl border border-primary-500/50 bg-slate-900/90 p-3"
+                  >
+                    <p class="text-[11px] font-medium text-primary-300">
+                      Standard
+                    </p>
+                    <p class="mt-1 text-sm font-semibold text-slate-50">
+                      Landing page design
+                    </p>
+                    <p class="mt-2 text-slate-300">
+                      1 responsive landing, copy support, dev‑ready Figma file.
+                    </p>
+                    <p class="mt-2 font-semibold text-slate-50">$1,600</p>
+                    <p class="text-[11px] text-slate-400">Delivery: 10 days</p>
+                    <p class="mt-1 text-[11px] text-emerald-300">
+                      Most popular for SaaS launches
+                    </p>
+                    <button
+                      class="mt-3 rounded-full bg-gradient-to-r from-primary-500 to-sky-400 px-3 py-1 text-[11px] font-semibold text-white shadow-soft"
+                    >
+                      Order Standard
+                    </button>
+                  </article>
+
+                  <article
+                    class="flex flex-col rounded-2xl border border-white/10 bg-slate-900/80 p-3"
+                  >
+                    <p class="text-[11px] font-medium text-slate-400">Premium</p>
+                    <p class="mt-1 text-sm font-semibold text-slate-50">
+                      Product design sprint
+                    </p>
+                    <p class="mt-2 text-slate-300">
+                      2‑week sprint from discovery to clickable prototype.
+                    </p>
+                    <p class="mt-2 font-semibold text-slate-50">$5,200</p>
+                    <p class="text-[11px] text-slate-400">Delivery: 2 weeks</p>
+                    <button
+                      class="mt-3 rounded-full bg-slate-950 px-3 py-1 text-[11px] font-medium text-slate-100"
+                    >
+                      Book intro call
+                    </button>
+                  </article>
+                </div>
+              </section>
+
+              <!-- Reviews -->
+              <section id="reviews" class="pt-2">
+                <h3 class="font-display text-sm font-semibold text-slate-50">
+                  Reviews & ratings
+                </h3>
+                <div class="mt-2 space-y-2 text-xs text-slate-300">
+                  <article
+                    class="rounded-2xl border border-white/5 bg-slate-900/80 p-3"
+                  >
+                    <div class="flex items-center justify-between">
+                      <p class="font-medium text-slate-50">
+                        “One of the clearest designers we’ve worked with”
+                      </p>
+                      <span class="text-amber-300">★ 5.0</span>
+                    </div>
+                    <p class="mt-1 text-slate-400">
+                      “Eliza translated a very fuzzy brief into a crisp product
+                      story and UI. The handoff to engineering was seamless.”
+                    </p>
+                    <p class="mt-1 text-[11px] text-slate-500">
+                      — Head of Product, B2B analytics company
+                    </p>
+                  </article>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog / Resources -->
+      <section id="blog" class="mt-16">
+        <div class="flex items-center justify-between gap-3">
+          <div>
+            <h2
+              class="font-display text-xl font-semibold tracking-tight text-white sm:text-2xl"
+            >
+              Resources for clients & freelancers
+            </h2>
+            <p class="mt-1 text-sm text-slate-400">
+              Learn how to scope better briefs, price your skills, and build
+              long‑term partnerships.
+            </p>
+          </div>
+          <button
+            class="hidden rounded-full border border-white/10 px-3 py-1.5 text-xs font-medium text-slate-200 hover:border-primary-400/60 hover:bg-primary-500/10 sm:inline-flex"
+          >
+            View blog
+          </button>
+        </div>
+
+        <div
+          class="mt-6 grid gap-4 md:grid-cols-3"
+          aria-label="Blog & resources"
+        >
+          <article
+            class="group flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 transition hover:-translate-y-1 hover:border-primary-500/60 hover:bg-slate-900/90"
+          >
+            <p class="text-[11px] font-medium text-primary-300">
+              Hiring Guide
+            </p>
+            <h3
+              class="mt-2 font-display text-sm font-semibold text-slate-50 group-hover:text-white"
+            >
+              7 steps to briefing your first freelance designer
+            </h3>
+            <p class="mt-2 text-xs text-slate-400">
+              A practical checklist to avoid costly misalignment and revisions.
+            </p>
+          </article>
+
+          <article
+            class="group flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 transition hover:-translate-y-1 hover:border-primary-500/60 hover:bg-slate-900/90"
+          >
+            <p class="text-[11px] font-medium text-primary-300">
+              Freelancing Tips
+            </p>
+            <h3
+              class="mt-2 font-display text-sm font-semibold text-slate-50 group-hover:text-white"
+            >
+              How to price your services with confidence
+            </h3>
+            <p class="mt-2 text-xs text-slate-400">
+              Frameworks to move beyond hourly rates and sell outcomes.
+            </p>
+          </article>
+
+          <article
+            class="group flex flex-col rounded-2xl border border-white/5 bg-slate-950/80 p-4 transition hover:-translate-y-1 hover:border-primary-500/60 hover:bg-slate-900/90"
+          >
+            <p class="text-[11px] font-medium text-primary-300">
+              Platform Deep‑Dive
+            </p>
+            <h3
+              class="mt-2 font-display text-sm font-semibold text-slate-50 group-hover:text-white"
+            >
+              Inside FreelanceHub’s escrow & dispute process
+            </h3>
+            <p class="mt-2 text-xs text-slate-400">
+              See how we keep projects safe for both clients and freelancers.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="mt-16">
+        <div
+          class="flex flex-col gap-6 rounded-3xl border border-primary-500/30 bg-gradient-to-r from-primary-500/20 via-slate-950 to-sky-400/20 p-6 text-center shadow-soft sm:text-left lg:flex-row lg:items-center lg:justify-between lg:p-8"
+        >
+          <div>
+            <h2
+              class="font-display text-xl font-semibold tracking-tight text-white sm:text-2xl"
+            >
+              Ready to build your dream product team?
+            </h2>
+            <p class="mt-2 text-sm text-slate-100">
+              Post a project for free in under 3 minutes and start receiving
+              proposals from vetted experts today.
+            </p>
+          </div>
+          <div class="flex flex-wrap justify-center gap-3 lg:justify-end">
+            <a
+              href="register.html"
+              class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-950 shadow-soft hover:bg-slate-100"
+            >
+              Post a job
+            </a>
+            <a
+              href="register.html"
+              class="inline-flex items-center justify-center rounded-full border border-white/20 bg-slate-950/20 px-5 py-2 text-sm font-medium text-slate-50 hover:border-white/60"
+            >
+              Join as freelancer
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer with key links including legal -->
+    <footer class="border-t border-white/5 bg-slate-950/95">
+        <div
+          class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-8 text-xs text-slate-400 sm:flex-row sm:items-start sm:justify-between lg:px-6"
+        >
+        <div class="flex items-center gap-2">
+          <div
+            class="flex h-7 w-7 items-center justify-center rounded-2xl bg-gradient-to-tr from-primary-500 to-sky-400 text-[11px] font-semibold text-white"
+          >
+            FH
+          </div>
+          <div>
+            <p class="font-display text-sm font-semibold text-slate-50">
+              FreelanceHub
+            </p>
+            <p class="text-[11px] text-slate-400">
+              © <span id="year"></span> All rights reserved.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <div class="flex flex-col gap-1">
+            <p class="text-[11px] font-medium text-slate-300">Product</p>
+            <a href="#categories" class="hover:text-slate-200">Browse services</a>
+            <a href="#freelancers" class="hover:text-slate-200"
+              >Find freelancers</a
+            >
+            <a href="#dashboards" class="hover:text-slate-200"
+              >Client dashboard</a
+            >
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="text-[11px] font-medium text-slate-300">Company</p>
+            <a href="#blog" class="hover:text-slate-200">Blog & resources</a>
+            <a href="#about" class="hover:text-slate-200">About</a>
+            <a href="#contact" class="hover:text-slate-200">Contact</a>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="text-[11px] font-medium text-slate-300">Legal</p>
+            <a href="#terms" class="hover:text-slate-200">Terms & Conditions</a>
+            <a href="#privacy" class="hover:text-slate-200">Privacy Policy</a>
+            <a href="#refund" class="hover:text-slate-200">Refund Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lower footer: auth, messaging, payments, admin, legal -->
+      <div class="border-t border-white/5 bg-slate-950">
+        <div
+          class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 text-[11px] text-slate-500 md:flex-row md:justify-between lg:px-6"
+        >
+          <div class="space-y-1">
+            <p class="font-medium text-slate-300">Platform modules</p>
+            <p>
+              User authentication · Client & freelancer dashboards · Messaging ·
+              Payments & escrow · Reviews · Admin panel
+            </p>
+            <p class="text-slate-500">
+              This front‑end is a visual prototype.
+              <span class="text-slate-400"
+                >Real payment processing, chat, disputes and verification require a
+                secure backend integration.</span
+              >
+            </p>
+          </div>
+          <div class="space-y-1">
+            <p class="font-medium text-slate-300">Legal</p>
+            <p>
+              <span id="terms" class="text-slate-400"
+                >Terms & Conditions – outline usage, fees, and acceptable
+                conduct.</span
+              >
+            </p>
+            <p>
+              <span id="privacy" class="text-slate-400"
+                >Privacy Policy – explain what data is collected and how it is
+                used.</span
+              >
+            </p>
+            <p>
+              <span id="refund" class="text-slate-400"
+                >Refund Policy – describe when clients can request refunds and how
+                disputes are handled.</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
+
+
